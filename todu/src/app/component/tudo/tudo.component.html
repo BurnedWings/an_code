@@ -1,0 +1,20 @@
+<nz-table #rowSelectionTable nzShowPagination nzShowSizeChanger [nzData]="tudos"
+    (nzCurrentPageDataChange)="onCurrentPageDataChange()">
+    <thead>
+        <tr>
+            <th [nzChecked]="false" [nzIndeterminate]="false" (nzCheckedChange)="onAllChecked()"></th>
+            <th>title</th>
+            <th>username</th>
+            <th>createTime</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of tudos">
+            <td [nzChecked]="false" [nzDisabled]="false"
+                (nzCheckedChange)="onItemChecked()"></td>
+            <td>{{ data.username }}</td>
+            <td>{{ data.title }}</td>
+            <td>{{ data.createTime }}</td>
+        </tr>
+    </tbody>
+</nz-table>
